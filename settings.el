@@ -78,9 +78,6 @@
 ;:(load-theme 'base16 t)
 ;:(load-theme 'base16 t)
 
-;: Emacs starts automatically in full-screen mode
-(toggle-frame-fullscreen)
-
 (setq TeX-PDF-mode t)
 
 (require 'ess-r-mode)
@@ -94,3 +91,6 @@
     (ess-toggle-underscore nil)
     (with-eval-after-load 'ess
       (setq ess-use-company t))
+
+;: Automatically enable fullscreen
+(run-with-idle-timer 0.1 nil 'toggle-frame-fullscreen)

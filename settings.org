@@ -87,9 +87,6 @@
 ;: Emacs theme
 ;:(load-theme 'base16 t)
 ;:(load-theme 'base16 t)
-
-;: Emacs starts automatically in full-screen mode
-(toggle-frame-fullscreen)
 #+END_SRC
 * auctex
 #+BEGIN_SRC emacs-lisp
@@ -108,4 +105,9 @@
     (ess-toggle-underscore nil)
     (with-eval-after-load 'ess
       (setq ess-use-company t))
+#+END_SRC
+* screen
+#+BEGIN_SRC emacs-lisp
+;: Automatically enable fullscreen
+(run-with-idle-timer 0.1 nil 'toggle-frame-fullscreen)
 #+END_SRC
