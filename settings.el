@@ -94,3 +94,9 @@
 
 ;: Automatically enable fullscreen
 (run-with-idle-timer 0.1 nil 'toggle-frame-fullscreen)
+
+;:(use-package omnisharp
+ ;: :after company
+  ;::config
+  ;:(add-hook 'csharp-mode-hook 'omnisharp-mode)
+  ;:(add-to-list 'company-backends 'company-omnisharp))

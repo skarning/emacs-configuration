@@ -111,3 +111,11 @@
 ;: Automatically enable fullscreen
 (run-with-idle-timer 0.1 nil 'toggle-frame-fullscreen)
 #+END_SRC
+* C#
+#+BEGIN_SRC emacs-lisp
+;:(use-package omnisharp
+ ;: :after company
+  ;::config
+  ;:(add-hook 'csharp-mode-hook 'omnisharp-mode)
+  ;:(add-to-list 'company-backends 'company-omnisharp))
+#+END_SRC
