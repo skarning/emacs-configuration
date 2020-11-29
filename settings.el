@@ -1,11 +1,7 @@
-
 ;:Enables the use of melpa packages
-(package-initialize)
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(package-initialize)
-(elpy-enable)
 
 ;: Enable visual-line-mode by default
 (visual-line-mode)
@@ -46,16 +42,16 @@
 (setq org-publish-project-alist
       '(
 
-        ;; Configuration
-        ("org-notes"
-         :base-directory "~/org/"
-         :base-extension "org"
-         :publishing-directory "~/public_html/"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         :headline-levels 4             ; Just the default for this project.
-         :auto-preamble t
-         )
+	;; Configuration
+	("org-notes"
+	 :base-directory "~/org/"
+	 :base-extension "org"
+	 :publishing-directory "~/public_html/"
+	 :recursive t
+	 :publishing-function org-html-publish-to-html
+	 :headline-levels 4             ; Just the default for this project.
+	 :auto-preamble t
+	 )
 
       ))
 
@@ -79,18 +75,6 @@
 ;:(load-theme 'base16 t)
 
 (setq TeX-PDF-mode t)
-
-(require 'ess-r-mode)
-
-(add-to-list 'auto-mode-alist '("\\.R\\'" . r-mode))
-
-    (require 'company)
-    (setq tab-always-indent 'complete)
-    (setq company-idle-delay 0.1)
-    (global-company-mode)
-    (ess-toggle-underscore nil)
-    (with-eval-after-load 'ess
-      (setq ess-use-company t))
 
 ;: Automatically enable fullscreen
 (run-with-idle-timer 0.1 nil 'toggle-frame-fullscreen)
