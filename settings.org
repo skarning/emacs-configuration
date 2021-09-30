@@ -1,17 +1,14 @@
-* package managers
+* General Settings
+** Package managers
 #+BEGIN_SRC emacs-lisp
-;:Enables the use of melpa packages
-(elpy-enable)
-(package-initialize)
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(require 'package) ;; package.el
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 #+END_SRC
-
-* menu bars
+** menu bars
 #+BEGIN_SRC emacs-lisp
 ;: Enable visual-line-mode by default
+
 (visual-line-mode)
 
 ;: Disabling menu-bar
@@ -23,7 +20,13 @@
 ;: Disable tool-bar
 (tool-bar-mode -1)
 #+END_SRC
-* org
+** theme
+#+BEGIN_SRC emacs-lisp
+;: Emacs theme
+(load-theme 'spacemacs-light t)
+#+END_SRC
+
+** org
 #+BEGIN_SRC emacs-lisp
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -47,75 +50,35 @@
                                    (format-time-string "%Y%m" (current-time))
                                    ".org_archive::"))
 #+END_SRC
-* misc
+** org-roam
+
 #+BEGIN_SRC emacs-lisp
-;: Export from org files to html
-(require 'ox-publish)
-(setq org-publish-project-alist
-      '(
-
-	;; Configuration
-	("org-notes"
-	 :base-directory "~/org/"
-	 :base-extension "org"
-	 :publishing-directory "~/public_html/"
-	 :recursive t
-	 :publishing-function org-html-publish-to-html
-	 :headline-levels 4             ; Just the default for this project.
-	 :auto-preamble t
-	 )
-
-      ))
-
-;: Configuration of the drag-stuff package
-(add-to-list 'load-path "/path/to/drag-stuff")
-(require 'drag-stuff)
-(drag-stuff-global-mode 1)
-(drag-stuff-define-keys)
-
-;: Loads auctex configuration
-(add-to-list 'load-path "~/.emacs.d/auctex")
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-
-;: Magit key-bindings
-(global-set-key (kbd "C-x g") 'magit-status)
+  (setq org-roam-directory (file-truename "C:/Users/sivert.skarning/Dropbox/org/org-roam"))
+  
+  
+     
+  ;: Configuration of the drag-stuff package
+  (add-to-list 'load-path "/path/to/drag-stuff")
+  (require 'drag-stuff)
+  (drag-stuff-global-mode 1)
+  (drag-stuff-define-keys)
+  
+  ;: Loads auctex configuration
+  (add-to-list 'load-path "~/.emacs.d/auctex")
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil)
+  
+  ;: Magit key-bindings
+  (global-set-key (kbd "C-x g") 'magit-status)
 #+END_SRC
-* theme
-#+BEGIN_SRC emacs-lisp
-;: Emacs theme
-;:(load-theme 'base16 t)
-;:(load-theme 'base16 t)
-#+END_SRC
-* auctex
-#+BEGIN_SRC emacs-lisp
-(setq TeX-PDF-mode t)
-#+END_SRC
-* R-mode
-#+BEGIN_SRC emacs-lisp
-(require 'ess-r-mode)
-
-(add-to-list 'auto-mode-alist '("\\.R\\'" . r-mode))
-
-    (require 'company)
-    (setq tab-always-indent 'complete)
-    (setq company-idle-delay 0.1)
-    (global-company-mode)
-    (ess-toggle-underscore nil)
-    (with-eval-after-load 'ess
-      (setq ess-use-company t))
-#+END_SRC
-* screen
+** screen
 #+BEGIN_SRC emacs-lisp
 ;: Automatically enable fullscreen
 (run-with-idle-timer 0.1 nil 'toggle-frame-fullscreen)
 #+END_SRC
-* C#
+** Notifications
 #+BEGIN_SRC emacs-lisp
-;:(use-package omnisharp
- ;: :after company
-  ;::config
-  ;:(add-hook 'csharp-mode-hook 'omnisharp-mode)
-  ;:(add-to-list 'company-backends 'company-omnisharp))
+(setq ring-bell-function 'ignore)
+(setq visible-bell t)
 #+END_SRC

@@ -1,9 +1,9 @@
-;:Enables the use of melpa packages
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(require 'package) ;; package.el
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
 ;: Enable visual-line-mode by default
+
 (visual-line-mode)
 
 ;: Disabling menu-bar
@@ -14,6 +14,9 @@
 
 ;: Disable tool-bar
 (tool-bar-mode -1)
+
+;: Emacs theme
+(load-theme 'spacemacs-light t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -37,23 +40,9 @@
                                    (format-time-string "%Y%m" (current-time))
                                    ".org_archive::"))
 
-;: Export from org files to html
-(require 'ox-publish)
-(setq org-publish-project-alist
-      '(
+(setq org-roam-directory (file-truename "C:/Users/sivert.skarning/Dropbox/org/org-roam"))
 
-	;; Configuration
-	("org-notes"
-	 :base-directory "~/org/"
-	 :base-extension "org"
-	 :publishing-directory "~/public_html/"
-	 :recursive t
-	 :publishing-function org-html-publish-to-html
-	 :headline-levels 4             ; Just the default for this project.
-	 :auto-preamble t
-	 )
 
-      ))
 
 ;: Configuration of the drag-stuff package
 (add-to-list 'load-path "/path/to/drag-stuff")
@@ -70,17 +59,8 @@
 ;: Magit key-bindings
 (global-set-key (kbd "C-x g") 'magit-status)
 
-;: Emacs theme
-;:(load-theme 'base16 t)
-;:(load-theme 'base16 t)
-
-(setq TeX-PDF-mode t)
-
 ;: Automatically enable fullscreen
 (run-with-idle-timer 0.1 nil 'toggle-frame-fullscreen)
 
-;:(use-package omnisharp
- ;: :after company
-  ;::config
-  ;:(add-hook 'csharp-mode-hook 'omnisharp-mode)
-  ;:(add-to-list 'company-backends 'company-omnisharp))
+(setq ring-bell-function 'ignore)
+(setq visible-bell t)

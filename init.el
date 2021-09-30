@@ -1,28 +1,19 @@
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-'("melpa" . "https://melpa.org/packages/"))
-(package-initialize)
+(require 'org)
+(org-babel-load-file
+ (expand-file-name "settings.org"
+                   "~/.emacs.d"))
 
-;; Bootstrap `use-package'
-(unless (package-installed-p 'use-package)
-(package-refresh-contents)
-(package-install 'use-package))
-
-(org-babel-load-file (expand-file-name "~/.emacs.d/settings.org"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(initial-buffer-choice nil)
- '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(initial-frame-alist '((fullscreen . maximized)))
  '(org-agenda-files
-   (quote
-    ("~/Dropbox/org/jobb.org" "~/Dropbox/org/skole.org" "~/Dropbox/org/privat.org")))
+   '("c:/Users/sivert.skarning/Dropbox/org/work.org" "c:/Users/sivert.skarning/Dropbox/org/personal.org"))
  '(package-selected-packages
-   (quote
-    (gnu-elpa-keyring-update use-package solarized-theme snazzy-theme plantuml-mode magit ess-smart-underscore ess-smart-equals elpy drag-stuff auctex ac-ispell))))
+   '(org-roam org-roam-bibtex emacsql-sqlite emacsql-sqlite3 spacemacs-theme gnu-elpa-keyring-update magit solarized-theme ac-ispell snazzy-theme plantuml-mode elpy drag-stuff auctex)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
