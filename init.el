@@ -11,9 +11,9 @@
  '(initial-buffer-choice nil)
  '(initial-frame-alist '((fullscreen . maximized)))
  '(org-agenda-files
-   '("c:/Users/sivert.skarning/Dropbox/org/work.org" "c:/Users/sivert.skarning/Dropbox/org/personal.org"))
+   '("c:/Users/Sivert Skarning/Dropbox/org/private.org" "c:/Users/Sivert Skarning/Dropbox/org/work.org"))
  '(package-selected-packages
-   '(org-roam org-roam-bibtex emacsql-sqlite emacsql-sqlite3 spacemacs-theme gnu-elpa-keyring-update magit solarized-theme ac-ispell snazzy-theme plantuml-mode elpy drag-stuff auctex)))
+   '(typescript-mode projectile org-roam org-roam-bibtex emacsql-sqlite emacsql-sqlite3 spacemacs-theme gnu-elpa-keyring-update magit solarized-theme ac-ispell snazzy-theme plantuml-mode elpy drag-stuff auctex)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
