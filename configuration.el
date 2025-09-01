@@ -52,6 +52,7 @@
   :commands lsp-ui-mode)
 
 ;; UI tweaks
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
 (visual-line-mode 1)
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
